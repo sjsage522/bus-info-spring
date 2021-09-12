@@ -76,7 +76,7 @@ public class BusController {
     private List<BusInfo> getResult(List<BusInfo> busStopIdList) throws MalformedURLException, ParseException {
         List<BusInfo> result = new ArrayList<>();
         for (BusInfo busInfo : busStopIdList) {
-            if (busInfo.getLastStopId() == null) continue;
+            if (busInfo == null || busInfo.getLastStopId() == null) continue;
             Long lastStopId = Long.parseLong(busInfo.getLastStopId());
             URL arsURL = getAPIUriById(END_POINT_STOP_INFO, "arsId", busInfoProperty.getServiceKeyStopInfo(), lastStopId); //API url
             HttpURLConnection connection = HttpURLConnectionUtils.defaultSettingAndGetConnection(arsURL);
