@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class BusInfo {
+public class BusInfo implements Comparable<BusInfo>{
     private final Long statusPos;
     private final String stopName;
     private final Long extimeMin;
@@ -36,5 +36,10 @@ public class BusInfo {
                 ", lastStopId='" + lastStopId + '\'' +
                 ", destination='" + destination + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(BusInfo o) {
+        return Long.compare(this.routeNo, o.routeNo);
     }
 }

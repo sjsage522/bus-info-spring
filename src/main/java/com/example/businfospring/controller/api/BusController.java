@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.example.businfospring.util.XMLResponseUtils.getXMLResponse;
@@ -86,6 +87,7 @@ public class BusController {
             busInfo.lastStopIdToName(busStopName);
             result.add(busInfo);
         }
+        Collections.sort(result);
         return result;
     }
 }
